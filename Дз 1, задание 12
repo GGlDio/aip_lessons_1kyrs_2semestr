@@ -1,0 +1,14 @@
+#include <iostream>
+#include <string>
+
+int main()
+{
+    std::string text;
+    std::string target_str("true");
+    std::string replaced_str("false");
+    std::cout<<"Enter the text for replace: "<<std::endl;
+    std::cin>>text;
+    size_t substing_length = text.find(target_str);
+    text.replace(substing_length,4,replaced_str);
+    std::cout<<"Replaced text: "<<std::endl<<text;
+}
