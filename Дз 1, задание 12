@@ -11,4 +11,5 @@ int main()
     size_t substing_length = text.find(target_str);
     text.replace(substing_length,4,replaced_str);
     std::cout<<"Replaced text: "<<std::endl<<text;
+    return 0;
 }
