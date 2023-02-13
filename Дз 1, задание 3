@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+
+int main()
+{
+    std::string text("gfdgfd dfggfff");
+    int current=0,kolvo_word=0;
+    std::cout<<"Text: "<<std::endl;
+    //std::cin>>text;
+    for (int i=0;i<text.length()-1;i++){
+        if (text[i]==' '){
+           current=1;
+        } else current+=1;
+
+        if (current==6){
+            kolvo_word=kolvo_word+1;
+        }
+
+        if (current==7) {
+            kolvo_word=kolvo_word-1;
+        }
+    }
+    std::cout<<std::endl<<"kolvo word of 6 letters: "<<kolvo_word<<std::endl;
+}
