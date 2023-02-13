@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+
+int main()
+{
+    std::string text;
+    std::cout<<"Enter text: "<<std::endl;
+    std::cin>>text;
+    for (int i=0;i<text.length();i++){
+        if (text[i]>='0' && text[i]<='9'){
+            switch (text[i]) {
+            case '1':
+                std::cout<<" one ";
+                break;
+            case '2':
+                std::cout<<" two ";
+                break;
+            case '3':
+                std::cout<<" three ";
+                break;
+            case '4':
+                std::cout<<" four ";
+                break;
+            case '5':
+                std::cout<<" five ";
+                break;
+            case '6':
+                std::cout<<" six ";
+                break;
+            case '7':
+                std::cout<<" seven ";
+                break;
+            case '8':
+                std::cout<<" eight ";
+                break;
+            case '9':
+                std::cout<<" nine ";
+                break;
+            case '0':
+                std::cout<<" null ";
+                break;
+            }
+        }
+        else
+            std::cout<<text[i];
+    }
+    std::cout<<std::endl;
+    return 0;
+}
