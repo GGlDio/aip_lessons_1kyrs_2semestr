@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string>
+
+int main()
+{
+    std::string text;
+    int current=0;
+    std::cout<<"Enter text: "<<std::endl;
+    std::cin>>text;
+    for (int i=0;i<text.length();i++){
+        if (text[i]>='0' && text[i]<='9'){
+            current++;
+        }
+    }
+    std::cout<<"Amount of numbers: "<<current<<std::endl;
+    return 0;
+}
