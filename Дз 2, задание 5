@@ -1,0 +1,35 @@
+#include <iostream>
+#include <array>
+
+int main()
+{
+    const int nrows=10,ncols=10;
+    int min=0,i_count,j_count;
+    std::array<std::array<int, nrows>, ncols> matrica;
+    srand(0);
+    for (int i=0;i<nrows;i++){
+        for (int j=0;j<ncols;j++){
+            matrica[i][j]=rand()%100-50;
+            std::cout<<matrica[i][j]<<" ";
+            if (min>matrica[i][j]){
+                min=matrica[i][j];
+            }
+            if (i==j){
+                i_count=i;
+                j_count=j;
+            }
+            matrica[i_count][j_count]=min;
+        }
+        min=0;
+        i_count=0;
+        j_count=0;
+        std::cout<<std::endl;
+    }
+    std::cout<<"-----"<<std::endl;
+    for (int i=0;i<nrows;i++){
+        for (int j=0;j<ncols;j++){
+            std::cout<<matrica[i][j]<<" ";
+        }
+        std::cout<<std::endl;
+    }
+}
