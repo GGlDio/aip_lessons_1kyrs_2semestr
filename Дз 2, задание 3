@@ -1,4 +1,8 @@
-const int nrows=10,ncols=10; 
+#include <iostream>
+#include <array>
+
+int main(){
+    const int nrows=10,ncols=10; 
     int sum=0;
     std::array<std::array<int, nrows>, ncols> matrica;
     srand(0);
