@@ -1,0 +1,15 @@
+const int nrows=10,ncols=10; 
+    int sum=0;
+    std::array<std::array<int, nrows>, ncols> matrica;
+    srand(0);
+    for (int i=0;i<nrows;i++){
+        for (int j=0;j<ncols;j++){
+            matrica[i][j]=rand()%100-50;
+            std::cout<<matrica[i][j]<<" ";
+            if (i==j && matrica[i][j]<0){
+                sum+=matrica[i][j];
+            }
+        }
+        std::cout<<std::endl;
+    }
+    std::cout<<std::endl<<"Summa otriz 4isel: "<<sum<<std::endl;
