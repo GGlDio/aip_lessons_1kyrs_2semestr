@@ -1,0 +1,34 @@
+#include <iostream>
+#include <fstream>
+
+void readPngHeader(const std::string fname){
+    std::fstream f;
+    char head[8];
+    char IHDR_chunk[25];
+    f.open(fname,std::ios::in|std::ios::in);
+    if(!f.is_open()){
+        std::cout<<"Error open: "<<fname<<std::endl;
+        f.close();
+        return;
+    }
+    f>>head;
+    f>>IHDR_chunk;
+    f.close();
+
+    std::cout<<"Size of char type is "<<sizeof(char)<<" byte."<<std::endl;
+    std::cout<<"PNG header is 8 bytes."<<std::endl;
+    std::cout<<"PNG header of \""<<fname<<"\" file is: "<<head<<std::endl;
+    std::cout<<"----------------------------"<<std::endl;
+    std::cout<<"PNG IHDR chunk is 25 bytes."<<std::endl;
+    std::cout<<"PNG IHDR chunk of \""<<fname<<"\" file is: "<<IHDR_chunk<<std::endl;
+}
+
+
+int main()
+{
+    std::string name_file;
+    std::cout<<"Enter name of file: ";
+    std::cin>>name_file;
+    readPngHeader(name_file);
+    return 0;
+}
