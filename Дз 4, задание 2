@@ -1,20 +1,20 @@
 #include <iostream>
 
-void pokaz(double* A, double* B){
+void pokaz(short* A, short* B){
     std::cout<<"Number A: "<<*A<<std::endl;
     std::cout<<"Number B: "<<*B<<std::endl;
     std::cout<<"A: "<<A<<std::endl;
     std::cout<<"B: "<<B<<std::endl;
 }
 
-double zamena(double* &A, double* &B, double* &C){
+short zamena(short* &A, short* &B, short* &C){
      C=A;
      A=B;
      B=C;
      std::cout<<std::endl;
 }
 
-void deleted(double*A, double*B){
+void deleted(short*A, short*B){
     delete A;
     delete B;
     std::cout<<"Delete A: "<<*A<<std::endl;
@@ -23,11 +23,11 @@ void deleted(double*A, double*B){
 
 int main()
 {
-    double* A;
-    double* B;
-    double* C;
-    A=new double;
-    B=new double;
+    short* A;
+    short* B;
+    short* C;
+    A=new short;
+    B=new short;
     *A=rand()%100;
     *B=rand()%100;
     pokaz(A,B);
@@ -36,3 +36,4 @@ int main()
     deleted(A,B);
     return 0;
 }
+
