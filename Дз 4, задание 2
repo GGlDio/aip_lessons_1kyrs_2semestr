@@ -1,0 +1,38 @@
+#include <iostream>
+
+void pokaz(double* A, double* B){
+    std::cout<<"Number A: "<<*A<<std::endl;
+    std::cout<<"Number B: "<<*B<<std::endl;
+    std::cout<<"A: "<<A<<std::endl;
+    std::cout<<"B: "<<B<<std::endl;
+}
+
+double zamena(double* &A, double* &B, double* &C){
+     C=A;
+     A=B;
+     B=C;
+     std::cout<<std::endl;
+}
+
+void deleted(double*A, double*B){
+    delete A;
+    delete B;
+    std::cout<<"Delete A: "<<*A<<std::endl;
+    std::cout<<"Delete B: "<<*B<<std::endl;
+}
+
+int main()
+{
+    double* A;
+    double* B;
+    double* C;
+    A=new double;
+    B=new double;
+    *A=rand()%100;
+    *B=rand()%100;
+    pokaz(A,B);
+    zamena(A,B,C);
+    pokaz(A,B);
+    deleted(A,B);
+    return 0;
+}
