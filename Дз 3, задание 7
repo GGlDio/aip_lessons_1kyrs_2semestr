@@ -1,0 +1,73 @@
+#include <iostream>
+#include <fstream>
+
+struct info{
+    float x,y;
+    int command;
+};
+
+int main()
+{
+    int choice;
+    int cout;
+    std::fstream file;
+    std::cout<<"Enter a number to select an input option."<<std::endl;
+    std::cout<<"1 - file"<<std::endl;
+    std::cout<<"2 - keyboard"<<std::endl;
+    std::cin>>choice;
+    std::cout<<"Your choice - "<<choice<<std::endl;
+    switch(choice)
+    {
+    case 1:
+    {
+                file.open("In.txt",std::ios::out|std::ios::in);
+                if(!file.is_open()){
+                    std::cout<<"Error"<<std::endl;
+                    return -1;
+                }
+                char *str = new char [1024];
+                while(!file.eof()){
+                    file.getline(str,1024,'/n');
+                    cout++;
+                }
+                delete str;
+                info data[cout];
+                for(int i=0;i<cout;i++){
+                    file>>data[i].x>>data[i].y>>data[i].command;
+                }
+                file.close();
+
+                file.open("Setting.txt",std::ios::out|std::ios::in);
+                if(!file.is_open()){
+                    std::cout<<"Error"<<std::endl;
+                    return -1;
+                }
+                for(int i=0;i<cout;i++){
+                    file<<data[i].x<<"\n"<<data[i].y<<"\n"<<data[i].command<<"\n"<<"-=-=-=- \n";
+                }
+    }
+    case 2:
+    {
+                std::cout<<"Enter quadcopter data quantity: "<<std::endl;
+                std::cin>>cout;
+                std::cout<<"Data amount: "<<cout<<std::endl<<"-=-=-=-"<<std::endl;
+                info data[cout];
+                for(int i=0;i<cout;i++){
+                    std::cout<<"Enter coordinate x, coordinate y and command: ";
+                    std::cin>>data[i].x>>data[i].y>>data[i].command;
+                    std::cout<<"-=-=-=-"<<std::endl;
+                }
+
+                file.open("Setting.txt",std::ios::out|std::ios::in);
+                if(!file.is_open()){
+                    std::cout<<"Error"<<std::endl;
+                    return -1;
+                }
+                for(int i=0;i<cout;i++){
+                    file<<data[i].x<<"\n"<<data[i].y<<"\n"<<data[i].command<<"\n"<<"-=-=-=- \n";
+                }
+    }
+    default:
+                std::cout<<"Invalid input!"<<std::endl;
+    }
+}
