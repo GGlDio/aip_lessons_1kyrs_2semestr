@@ -1,0 +1,37 @@
+#include <iostream>
+
+short summ(short* A, short* B, short &rezult_summ){
+    rezult_summ=*A+*B;
+    return rezult_summ;
+}
+
+short razn(short* A, short* B, short &rezult_razn){
+    rezult_razn=*A-*B;
+    return rezult_razn;
+}
+
+short delete_ykaz(short* A,short* B){
+    delete A;
+    delete B;
+}
+
+int main()
+{
+    short* A;
+    short* B;
+    short rezult_summ,rezult_razn;
+    A=new short;
+    B=new short;
+    *A=rand()%100;
+    *B=rand()%100;
+    short s=summ(A,B,rezult_summ);
+    short r=razn(A,B,rezult_razn);
+    std::cout<<"Number A: "<<*A<<std::endl;
+    std::cout<<"Number B: "<<*B<<std::endl;
+    std::cout<<"A + B: "<<s<<std::endl;
+    std::cout<<"A - B: "<<r<<std::endl;
+    std::cout<<"A: "<<A<<std::endl;
+    std::cout<<"B: "<<B<<std::endl;
+    delete_ykaz(A,B);
+    return 0;
+}
