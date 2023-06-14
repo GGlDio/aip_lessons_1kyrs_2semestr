@@ -1,0 +1,26 @@
+#include <iostream>
+#include <fstream>
+
+int main()
+{
+    std::fstream fileIn,fileOut;
+    fileIn.open("in.txt",std::ios::out|std::ios::in);
+    fileOut.open("out.txt",std::ios::out|std::ios::in);
+    if((!fileIn.is_open())||(!fileOut.is_open())){
+        std::cout<<"Error"<<"\n";
+        return -1;
+    }
+    float a=1,d=1,y,x,b,c,h,rec;
+    fileIn>>x>>b>>c>>h;
+    std::cout<<x<<", "<<b<<", "<<c<<", "<<h<<"\n";
+    for(x;x<b;x+=c){
+        y=(a/(d*x));
+        d+= 1;
+        rec+=y;
+        fileOut<<x<<", "<<rec<<"\n";
+    }
+    fileIn.close();
+    fileOut.close();
+    std::cout<<"\n";
+    return 0;
+}
