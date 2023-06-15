@@ -1,0 +1,43 @@
+#include <iostream>
+
+struct Fruit{
+    std::string color;
+    std::string taste;
+    std::string shape;
+    std::string cost;
+};
+
+void changes(Fruit* fruits,int amount){
+    for(int i=0;i<amount;i++){
+        fruits[i].color+="No.";
+        fruits[i].taste+="I dont know :D";
+        fruits[i].shape+="Hehe";
+        fruits[i].cost+=rand()%500;
+    }
+}
+
+int main(){
+    Fruit* fruits=nullptr;
+    int amount;
+    std::cout<<"Enter amount of fruit: ";
+    std::cin>>amount;
+    fruits=new Fruit[amount];
+    for(int i=0;i<amount;i++){
+        std::cout<<std::endl<<"Enter color of "<<i<<" fruit: ";
+        std::cin>>fruits->color;
+        std::cout<<std::endl<<"Enter tase of "<<i<<" fruit: ";
+        std::cin>>fruits->taste;
+        std::cout<<std::endl<<"Enter shape of "<<i<<" fruit: ";
+        std::cin>>fruits->shape;
+        std::cout<<std::endl<<"Enter cost of "<<i<<" fruit: ";
+        std::cin>>fruits->cost;
+    }
+    std::cout<<std::endl;
+    changes(fruits,amount);
+    std::cout<<"-=-=-=- \nUpDaTe 0_o \n -=-=-=-\n";
+    for(int i=0;i<amount;i++){
+        std::cout<<i<<" fruit -> color: "<<fruits->color<<" ; taste: "<<fruits->taste<<" ; shape: "<<fruits->shape<<" ; cost: "<<fruits->cost<<std::endl;
+    }
+    delete [] fruits;
+    return 0;
+}
